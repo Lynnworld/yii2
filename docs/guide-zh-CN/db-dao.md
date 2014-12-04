@@ -1,18 +1,24 @@
-数据库基础
+数据访问对象(DAO)
+===============
 
-Yii 基于 PHP's PDO建立了一个成熟的数据库访问层。它提供统一的 API 并解决了一些不同 DBMS 产生的使用不利。 Yii 默认支持以下 DBMS ：
+Yii 在 PHP 的 PDO(http://www.php.net/manual/en/book.pdo.php)的基础上建立了一个数据访问层(DAO).对于不同的数据库提供了一套统一的API. 其中 ActiveRecord 提供了 数据库和模型(Model)的交互, QueryBuilder 用于创建动态查询语句, DAO 可以简单高效地运行SQL语句.你可以用在很多方面.
 
-MySQL
-MariaDB
-SQLite
-PostgreSQL
-CUBRID: version 9.1.0 or higher.
-Oracle
-MSSQL: version 2012 或更高版本，如需使用 LIMIT/OFFSET。
+Yii 默认支持以下 数据库 :
+
+*MySQL
+*MariaDB
+*SQLite
+*PostgreSQL
+*CUBRID: version 9.1.0 or higher.
+*Oracle
+*MSSQL: version 2012 或更高版本，如需使用 LIMIT/OFFSET。
+
 配置
+---------
 
 开始使用数据库首先需要配置数据库连接组件，通过添加 db 组件到应用配置实现（"基础的" Web 应用是 config/web.php），如下所示：
 
+```php
 return [
     // ...
     'components' => [
@@ -34,6 +40,7 @@ return [
     ],
     // ...
 ];
+```php
 请参考PHP manual获取更多有关 DSN 格式信息。
 
 配置连接组件后可以使用以下语法访问：
